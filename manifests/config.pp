@@ -31,7 +31,7 @@ class aide::config (
   concat::fragment { 'rule_header':
     target  => 'aide.conf',
     order   => '02',
-    content => "# User defined rules\n",
+    content => "#\nUser defined rules\n",
   }
 
   concat::fragment { 'watch_header':
