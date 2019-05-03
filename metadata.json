@@ -1,6 +1,6 @@
 {
   "name": "iu-aide",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Kenneth Gyan <kgyan@iu.edu>",
   "summary": "Installs, configures, and manages AIDE (Advanced Intrustion Detection Environment).",
   "license": "BSD-3-Clause",

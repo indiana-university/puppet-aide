@@ -36,7 +36,7 @@ describe 'aide::config' do
         is_expected.to contain_concat__fragment('rule_header').with(
           'target'  => 'aide.conf',
           'order'   => '02',
-          'content' => "#\nUser defined rules\n",
+          'content' => "\n# User defined rules\n",
         )
       }
       it {
