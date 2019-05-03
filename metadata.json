@@ -1,0 +1,66 @@
+{
+  "name": "iu-aide",
+  "version": "1.0.0",
+  "author": "Kenneth Gyan <kgyan@iu.edu>",
+  "summary": "Installs, configures, and manages AIDE (Advanced Intrustion Detection Environment).",
+  "license": "BSD-3-Clause",
+  "source": "https://github.com/indiana-university/puppet-aide",
+  "project_page": "https://github.com/indiana-university/puppet-aide",
+  "issues_url": "https://github.com/indiana-university/puppet-aide/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs/concat",
+      "version_requirement": ">= 4.0.0 < 6.0.0"
+    },
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">=4.0.0 < 6.0.0"
+    },
+    {
+      "name": "puppet/cron",
+      "version_requirement": ">=1.0.0 < 6.0.0"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "7",
+        "8"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "16.04",
+        "18.04"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 4.10.0 < 7.0.0"
+    }
+  ],
+  "tags": [
+    "aide"
+  ],
+  "pdk-version": "1.10.0",
+  "template-url": "https://github.com/puppetlabs/pdk-templates.git#1.10.0",
+  "template-ref": "1.10.0-0-gbba9ac3"
+}
