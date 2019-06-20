@@ -29,18 +29,21 @@ class aide::params {
       $aide_path = '/usr/bin/aide'
       $cat_path  = '/bin/cat'
       $rm_path   = '/bin/rm'
+      $mail_path = '/usr/bin/mail'
       $conf_path = '/etc/aide/aide.conf'
     }
     'Redhat': {
       $aide_path = '/usr/sbin/aide'
       $cat_path  = '/usr/bin/cat'
       $rm_path   = '/usr/bin/rm'
+      $mail_path = '/usr/bin/mail'
       $conf_path = '/etc/aide.conf'
     }
     default: {
       $aide_path = '/usr/sbin/aide'
       $cat_path  = '/usr/bin/cat'
       $rm_path   = '/usr/bin/rm'
+      $mail_path = '/usr/bin/mail'
       $conf_path = '/etc/aide.conf'
       #fail("The ${module_name} module is not supported on an ${::osfamily} based system.")
     }
