@@ -30,7 +30,7 @@ class aide::cron (
     if $mail_only_on_changes {
       cron::job { 'aide' :
         ensure  => $cron_ensure,
-        command => "LOG=$(mktemp) && ${settings} > \$LOG 2>&1 || ${cat_path} -v \$LOG | ${mail_path} -E -s ${email_subject}; ${rm_path} -f \$LOG",
+        command => "AIDE_OUT=$(${settings} 2>&1) || echo \"\${AIDE_OUT}\" | ${cat_path} -v | ${mail_path} -E -s ${email_subject}",
         user    => 'root',
         hour    => $hour,
         minute  => $minute,
