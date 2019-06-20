@@ -38,7 +38,7 @@ class aide::cron (
     } else {
       cron::job { 'aide':
         ensure  => $cron_ensure,
-        command => "${settings} | ${mail_path} -s ${email_subject}",
+        command => "${settings} | ${cat_path} -v | ${mail_path} -s ${email_subject}",
         user    => 'root',
         hour    => $hour,
         minute  => $minute,
