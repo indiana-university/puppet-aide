@@ -9,6 +9,7 @@ class aide::cron (
   $aide_path,
   $cat_path,
   $rm_path,
+  $mail_path,
   $conf_path,
   $minute,
   $hour,
@@ -29,7 +30,7 @@ class aide::cron (
     if $mail_only_on_changes {
       cron::job { 'aide' :
         ensure  => $cron_ensure,
-        command => "LOG=$(mktemp) && ${settings} > \$LOG 2>&1 || ${cat_path} -v \$LOG | mail -E -s ${email_subject}; ${rm_path} -f \$LOG",
+        command => "AIDE_OUT=$(${settings} 2>&1) || echo \"\${AIDE_OUT}\" | ${cat_path} -v | ${mail_path} -E -s ${email_subject}",
         user    => 'root',
         hour    => $hour,
         minute  => $minute,
@@ -37,7 +38,7 @@ class aide::cron (
     } else {
       cron::job { 'aide':
         ensure  => $cron_ensure,
-        command => "${settings} | mail -s ${email_subject}",
+        command => "${settings} | ${cat_path} -v | ${mail_path} -s ${email_subject}",
         user    => 'root',
         hour    => $hour,
         minute  => $minute,

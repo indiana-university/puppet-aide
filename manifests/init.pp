@@ -85,6 +85,7 @@ class aide (
       aide_path            => $aide_path,
       cat_path             => $aide::params::cat_path,
       rm_path              => $aide::params::rm_path,
+      mail_path            => $aide::params::mail_path,
       minute               => $minute,
       hour                 => $hour,
       nocheck              => $nocheck,
