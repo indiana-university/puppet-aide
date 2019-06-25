@@ -35,7 +35,7 @@ matrix:
       rvm: 2.5.3
       stage: spec
     -
-      env: DEPLOY_TO_FORGE=yes
+      env: DEPLOY_TO_FORGE=no
       stage: deploy
 branches:
   only:
