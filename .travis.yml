@@ -42,7 +42,7 @@ branches:
     - master
     - /^v\d/
 notifications:
-  email: false
+  email: kgyan@iu.edu
 deploy:
   provider: puppetforge
   user: puppet

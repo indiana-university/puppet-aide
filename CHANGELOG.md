@@ -1,5 +1,13 @@
 # Changelog
 
+## Release 1.0.3
+
+**Bugfixes**
+
+* Fixed cron job command by removing support for temporary file used by mail_only_on_changes param
+* Added `cat -v` to mail_only_on_changes needed to escape filenames with non-printable characters.
+* Added path for mail program
+
 ## Release 1.0.2
 
 **Bugfixes**

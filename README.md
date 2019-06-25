@@ -184,6 +184,13 @@ Location of aide binary.
 
 Default value: `/usr/sbin/aide`.
 
+### `mail_path`
+
+Data type: string.
+
+Location of mail binary.
+
+Default value: `/usr/bin/mail`.
 #### `config_template`
 
 Data type: String.
