@@ -1,5 +1,13 @@
 # Changelog
 
+## Release 1.0.4
+
+**Bugfixes**
+
+* Updated pdk
+* Updated dependency upbound limit
+
+
 ## Release 1.0.3
 
 **Bugfixes**
