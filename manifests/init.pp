@@ -14,23 +14,23 @@
 #
 # @conf_path
 #   Location of AIDE configuration file.
-#   
+#
 # @db_path
 #   Location of AIDE database file.
-# 
+#
 # @db_temp_path
 #   Location of update AIDE database file.
 #
-# @gzip_dbout 
+# @gzip_dbout
 #   Gzip the AIDE database file (may affect performance). Default is set to not gzip the database file.
-#  
+#
 # @aide_path
 #   Location of aide binary.
 #
-# @config_template  
+# @config_template
 #   Template to use for aide configuration.
 #
-# @aide_log 
+# @aide_log
 #   AIDE check output log.
 #
 # @syslogout
@@ -42,14 +42,14 @@
 # @minute
 #   Minute of cron job to run.
 #
-# @nocheck 
+# @nocheck
 #   Whether to enable or disable scheduled checks.
 #
 # @mailto
 #   Set this vaule to send email of results from aide --check in cron.
 #
 # @mail_only_on_changes
-#   If mail_only_on_changes is set to true, 
+#   If mail_only_on_changes is set to true,
 #   mails are only sent if changes are detected by AIDE.
 #   By default this flag is set to false
 #
@@ -90,7 +90,7 @@ class aide (
       hour                 => $hour,
       nocheck              => $nocheck,
       mailto               => $mailto,
-      mail_only_on_changes => $mailto,
+      mail_only_on_changes => $mail_only_on_changes,
       conf_path            => $conf_path,
       require              => Package[$package],
     }
