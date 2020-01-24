@@ -1,5 +1,12 @@
 # Changelog
 
+## Release 1.0.5
+
+**Bugfixes**
+
+* Pass correct variable to `mail_only_on_changes`
+* Updated pdk
+
 ## Release 1.0.4
 
 **Bugfixes**
