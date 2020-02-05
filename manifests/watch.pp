@@ -6,7 +6,7 @@
 # @example
 #   aide::watch { 'namevar': }
 define aide::watch (
-  $path  = $name,
+  Stdlib::Absolutepath $path = $name,
   $type  = 'regular',
   $rules = undef,
   $order = 50,
@@ -16,8 +16,6 @@ define aide::watch (
 
   $_rules = any2array($rules)
   $_type  = downcase($type)
-
-  validate_absolute_path($path)
 
   $content = $_type ? {
     'regular' => inline_template("${path} <%= @_rules.join('+') %>\n"),
