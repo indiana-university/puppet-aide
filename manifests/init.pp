@@ -77,6 +77,11 @@ class aide (
   $init_timeout         = $aide::params::init_timeout,
 ) inherits aide::params {
 
+  # Used to throttle I/O and CPU load of AIDE.
+  package { 'util-linux':
+    ensure => 'present',
+  }
+
   package { $package:
     ensure => $version,
   }

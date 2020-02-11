@@ -30,7 +30,7 @@ class aide::cron (
     if $mail_only_on_changes {
       cron::job { 'aide' :
         ensure  => $cron_ensure,
-        command => "AIDE_OUT=$(${settings} 2>&1) || echo \"\${AIDE_OUT}\" | ${cat_path} -v | ${mail_path} -E -s ${email_subject}",
+        command => "AIDE_OUT=$(nice ionice -c3 ${settings} 2>&1) || echo \"\${AIDE_OUT}\" | ${cat_path} -v | ${mail_path} -E -s ${email_subject}",
         user    => 'root',
         hour    => $hour,
         minute  => $minute,
@@ -38,7 +38,7 @@ class aide::cron (
     } else {
       cron::job { 'aide':
         ensure  => $cron_ensure,
-        command => "${settings} | ${cat_path} -v | ${mail_path} -s ${email_subject}",
+        command => "nice ionice -c3 ${settings} | ${cat_path} -v | ${mail_path} -s ${email_subject}",
         user    => 'root',
         hour    => $hour,
         minute  => $minute,
@@ -47,7 +47,7 @@ class aide::cron (
   } else {
     cron::job { 'aide':
       ensure  => $cron_ensure,
-      command => "${aide_path} --config ${conf_path} --check",
+      command => "nice ionice -c3 ${aide_path} --config ${conf_path} --check",
       user    => 'root',
       hour    => $hour,
       minute  => $minute,

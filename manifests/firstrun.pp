@@ -14,7 +14,7 @@ class aide::firstrun (
 ) {
 
   exec { 'aide init':
-    command     => "${aide_path} --init --config ${conf_path}",
+    command     => "nice ionice -c3 ${aide_path} --init --config ${conf_path}",
     user        => 'root',
     timeout     => $init_timeout,
     refreshonly => true,
