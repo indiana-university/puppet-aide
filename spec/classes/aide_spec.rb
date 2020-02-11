@@ -7,6 +7,7 @@ describe 'aide' do
 
       it { is_expected.to compile.with_all_deps }
       it { is_expected.to contain_class('aide') }
+      it { is_expected.to contain_package('util-linux').with_ensure('present') }
       it { is_expected.to contain_package('aide').with_ensure('latest') }
       it { is_expected.to contain_class('aide::cron').that_requires('Package[aide]') }
       it { is_expected.to contain_class('aide::config').that_requires('Package[aide]') }

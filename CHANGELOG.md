@@ -1,5 +1,15 @@
 # Changelog
 
+## Release 1.1.5
+
+**Enhancements**
+
+* Fixed deprecated `validate_legacy` warnings and switched from using params to hiera
+* Added `nice` and `ionice` to throttle I/O and CPU load of AIDE
+* Added unit test for `util-linux` package
+* Added path to `aide init` exec command in `firstrun.pp`
+* Update pdk to latest version
+
 ## Release 1.0.5
 
 **Bugfixes**

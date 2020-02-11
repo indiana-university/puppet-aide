@@ -18,6 +18,9 @@ class aide::cron (
   $mail_only_on_changes,
 ) {
 
+  # Throttle I/O with nice and ionice
+  $io = 'nice ionice -c3'
+
   if $nocheck == true {
     $cron_ensure = 'absent'
   } else {
@@ -30,7 +33,7 @@ class aide::cron (
     if $mail_only_on_changes {
       cron::job { 'aide' :
         ensure  => $cron_ensure,
-        command => "AIDE_OUT=$(nice ionice -c3 ${settings} 2>&1) || echo \"\${AIDE_OUT}\" | ${cat_path} -v | ${mail_path} -E -s ${email_subject}",
+        command => "AIDE_OUT=$(${io} ${settings} 2>&1) || echo \"\${AIDE_OUT}\" | ${cat_path} -v | ${mail_path} -E -s ${email_subject}",
         user    => 'root',
         hour    => $hour,
         minute  => $minute,
@@ -38,7 +41,7 @@ class aide::cron (
     } else {
       cron::job { 'aide':
         ensure  => $cron_ensure,
-        command => "nice ionice -c3 ${settings} | ${cat_path} -v | ${mail_path} -s ${email_subject}",
+        command => "${io} ${settings} | ${cat_path} -v | ${mail_path} -s ${email_subject}",
         user    => 'root',
         hour    => $hour,
         minute  => $minute,
@@ -47,7 +50,7 @@ class aide::cron (
   } else {
     cron::job { 'aide':
       ensure  => $cron_ensure,
-      command => "nice ionice -c3 ${aide_path} --config ${conf_path} --check",
+      command => "${io} ${aide_path} --config ${conf_path} --check",
       user    => 'root',
       hour    => $hour,
       minute  => $minute,
