@@ -1,1 +1,22 @@
+# Common / Default Parameters
 ---
+aide::package: 'aide'
+aide::version: 'latest'
+aide::db_path: '/var/lib/aide/aide.db'
+aide::db_temp_path: '/var/lib/aide/aide.db.new'
+aide::gzip_dbout: 'no'
+aide::aide_log: '/var/log/aide/aide.log'
+aide::syslogout: true
+aide::hour: 0
+aide::minute: 0
+aide::nocheck: false
+aide::mailto: ~
+aide::mail_only_on_changes: false
+aide::config_template: 'aide/aide.conf.erb'
+aide::cron_template: 'aide/cron.erb'
+aide::init_timeout: 300
+aide::aide_path: '/usr/sbin/aide'
+aide::cat_path: '/usr/bin/cat'
+aide::rm_path: '/usr/bin/rm'
+aide::mail_path: '/usr/bin/mail'
+aide::conf_path: '/etc/aide.conf'

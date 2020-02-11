@@ -59,23 +59,26 @@
 #   but this may be insufficient for more complex aide DBs.
 
 class aide (
-  $package              = $aide::params::package,
-  $version              = $aide::params::version,
-  $conf_path            = $aide::params::conf_path,
-  $db_path              = $aide::params::db_path,
-  $db_temp_path         = $aide::params::db_temp_path,
-  $gzip_dbout           = $aide::params::gzip_dbout,
-  $aide_path            = $aide::params::aide_path,
-  $config_template      = $aide::params::config_template,
-  $aide_log             = $aide::params::aide_log,
-  $syslogout            = $aide::params::syslogout,
-  $hour                 = $aide::params::hour,
-  $minute               = $aide::params::minute,
-  $nocheck              = $aide::params::nocheck,
-  $mailto               = $aide::params::mailto,
-  $mail_only_on_changes = $aide::params::mail_only_on_changes,
-  $init_timeout         = $aide::params::init_timeout,
-) inherits aide::params {
+  $package,
+  $version,
+  $conf_path,
+  $db_path,
+  $db_temp_path,
+  $gzip_dbout,
+  $aide_path,
+  $config_template,
+  $aide_log,
+  $syslogout,
+  $hour,
+  $minute,
+  $nocheck,
+  $mailto,
+  $mail_only_on_changes,
+  $init_timeout,
+  $cat_path,
+  $rm_path,
+  $mail_path,
+){
 
   # Used to throttle I/O and CPU load of AIDE.
   package { 'util-linux':
@@ -88,9 +91,9 @@ class aide (
 
   -> class { '::aide::cron':
       aide_path            => $aide_path,
-      cat_path             => $aide::params::cat_path,
-      rm_path              => $aide::params::rm_path,
-      mail_path            => $aide::params::mail_path,
+      cat_path             => $cat_path,
+      rm_path              => $rm_path,
+      mail_path            => $mail_path,
       minute               => $minute,
       hour                 => $hour,
       nocheck              => $nocheck,
