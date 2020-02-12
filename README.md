@@ -1,4 +1,5 @@
 # puppet-aide (AIDE - Advanced Intrusion Detection Enviroment).
+[![Build Status](https://travis-ci.com/indiana-university/puppet-aide.svg?branch=master)](https://travis-ci.com/indiana-university/puppet-aide)
 
 #### Table of Contents
 
