@@ -21,6 +21,11 @@ report_url=file://<%= @aide_log %>
 report_url=syslog:LOG_AUTH
 <% end -%>
 
+# Global report_ignore settings
+<% if @report_ignore_e2fsattrs -%>
+report_ignore_e2fsattrs=<%= @report_ignore_e2fsattrs %>
+<% end -%>
+
 # Rule predefined types:
 #p:      permissions
 #i:      inode:
