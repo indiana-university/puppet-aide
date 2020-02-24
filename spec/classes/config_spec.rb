@@ -6,13 +6,14 @@ describe 'aide::config' do
       let(:facts) { os_facts }
       let(:params) do
         {
-          'conf_path'       => '/etc/aide/aide.conf',
-          'db_path'         => '/var/lib/aide/aide.db',
-          'db_temp_path'    => '/var/lib/aide/aide.db.new',
-          'gzip_dbout'      => 'no',
-          'aide_log'        => '/var/log/aide/aide.log',
-          'syslogout'       => true,
-          'config_template' => 'aide/aide.conf.erb',
+          'conf_path'               => '/etc/aide/aide.conf',
+          'db_path'                 => '/var/lib/aide/aide.db',
+          'db_temp_path'            => '/var/lib/aide/aide.db.new',
+          'gzip_dbout'              => 'no',
+          'aide_log'                => '/var/log/aide/aide.log',
+          'syslogout'               => true,
+          'report_ignore_e2fsattrs' => :undef,
+          'config_template'         => 'aide/aide.conf.erb',
         }
       end
 
