@@ -1,5 +1,6 @@
 # puppet-aide (AIDE - Advanced Intrusion Detection Enviroment).
-[![Build Status](https://travis-ci.com/indiana-university/puppet-aide.svg?branch=master)](https://travis-ci.com/indiana-university/puppet-aide)
+[![Build Status](https://travis-ci.com/indiana-university/puppet-aide.svg?branch=master)](https://travis-ci.com/indiana-university/puppet-aide) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity) [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+
 
 #### Table of Contents
 
@@ -199,6 +200,13 @@ Data type: String.
 Template to use for aide configuration.
 
 Default value: `aide/aide.conf.erb`.
+#### `report_ignore_e2fsattrs`
+
+Data type: string
+
+List (no delimiter) of ext2 file attributes which are to be ignored in the final report.
+
+Default value: `undef`
 
 ### Logging Options
 

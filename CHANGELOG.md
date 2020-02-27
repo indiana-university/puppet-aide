@@ -1,6 +1,12 @@
 # Changelog
 
-## Release 1.1.5
+## Release 1.2.5
+
+**Enhancements**
+
+* Added `report_ignore_e2fsattrs` support
+* Updated README
+* Added github badges
 
 **Enhancements**
 
