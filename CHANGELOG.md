@@ -8,6 +8,8 @@
 * Updated README
 * Added github badges
 
+## Release 1.1.5
+
 **Enhancements**
 
 * Fixed deprecated `validate_legacy` warnings and switched from using params to hiera
