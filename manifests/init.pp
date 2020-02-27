@@ -57,6 +57,14 @@
 #   Allows to adjust timeout of the "aide --init" run.
 #   Puppet default exec timeout is 300 (which is also kept),
 #   but this may be insufficient for more complex aide DBs.
+#
+# @report_ignore_e2fsattrs
+#   List (no delimiter) of ext2 file attributes which are
+#   to be ignored in the final report.
+#   See chattr(1) for the available attributes.
+#   Use '0' to not ignore any attribute.
+#   Ignored attributes are represented by a ':' in the output.
+#   The default is to not ignore any ext2 file attribute.
 
 class aide (
   $package,
@@ -75,6 +83,7 @@ class aide (
   $mailto,
   $mail_only_on_changes,
   $init_timeout,
+  $report_ignore_e2fsattrs,
   $cat_path,
   $rm_path,
   $mail_path,
@@ -104,14 +113,15 @@ class aide (
     }
 
   -> class { '::aide::config':
-    conf_path       => $conf_path,
-    db_path         => $db_path,
-    db_temp_path    => $db_temp_path,
-    gzip_dbout      => $gzip_dbout,
-    aide_log        => $aide_log,
-    syslogout       => $syslogout,
-    config_template => $config_template,
-    require         => Package[$package],
+    conf_path               => $conf_path,
+    db_path                 => $db_path,
+    db_temp_path            => $db_temp_path,
+    gzip_dbout              => $gzip_dbout,
+    aide_log                => $aide_log,
+    syslogout               => $syslogout,
+    report_ignore_e2fsattrs => $report_ignore_e2fsattrs,
+    config_template         => $config_template,
+    require                 => Package[$package],
   }
 
   ~> class  { '::aide::firstrun':

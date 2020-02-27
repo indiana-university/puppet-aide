@@ -12,6 +12,7 @@ class aide::config (
   $gzip_dbout,
   $aide_log,
   $syslogout,
+  $report_ignore_e2fsattrs,
   $config_template,
 ) {
 
