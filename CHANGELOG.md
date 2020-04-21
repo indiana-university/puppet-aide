@@ -1,5 +1,12 @@
 # Changelog
 
+## Release 1.3.5
+
+**Enhancements**
+
+* Updated pdk
+* Added puppet aide task to initialize and copy aide database
+
 ## Release 1.2.5
 
 **Enhancements**

@@ -1,0 +1,7 @@
+{
+  "puppet_task_version": 1,
+  "supports_noop": true,
+  "description": "This task initializes aide and copies the aide database",
+  "parameters": {
+  }
+}

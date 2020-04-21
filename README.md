@@ -285,6 +285,13 @@ aide::syslogout: false
 aide::hour: 1
 ```
 
+### Tasks
+The aide module has a task that allows a user to manually initialize aide and copy the database. This is paticular useful when multiple changes are detected on more than one server. The commands the task executes are below and has been tested on Ubuntu.
+```
+aideinit
+cp /var/lib/aide/aide.db.new /var/lib/aide/aide.db
+```
+
 ## Limitations
 
 This module currently supports RedHat, CentOS, Debian and Ubuntu Linux but it has been fully tested on Ubuntu 16.04 and Ubuntu 18.04.

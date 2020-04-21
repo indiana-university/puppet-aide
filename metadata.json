@@ -1,6 +1,6 @@
 {
   "name": "iu-aide",
-  "version": "1.2.5",
+  "version": "1.3.5",
   "author": "Kenneth Gyan <kgyan@iu.edu>",
   "summary": "Installs, configures, and manages AIDE (Advanced Intrustion Detection Environment).",
   "license": "BSD-3-Clause",
@@ -68,7 +68,7 @@
     "cis-benchmarks",
     "cis"
   ],
-  "pdk-version": "1.16.0",
+  "pdk-version": "1.17.0",
   "template-url": "https://github.com/puppetlabs/pdk-templates.git#1.10.0",
   "template-ref": "tags/1.10.0-0-gbba9ac3"
 }
