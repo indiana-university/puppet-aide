@@ -32,7 +32,7 @@ are already installed on your puppet server. They are as follows:
 
 * `puppetlabs/concat` `4.0 - 8.0`
 * `puppetlabs/stdlib` `4.0 - 8.0`
-* `puppet/cron` `1.0 - 6.0`
+* `puppet/cron` `1.0 - 8.0`
 
 ## Examples
 
@@ -188,7 +188,7 @@ Default value: `/usr/sbin/aide`.
 
 ### `mail_path`
 
-Data type: string.
+Data type: String.
 
 Location of mail binary.
 
@@ -202,7 +202,7 @@ Template to use for aide configuration.
 Default value: `aide/aide.conf.erb`.
 #### `report_ignore_e2fsattrs`
 
-Data type: string
+Data type: String
 
 List (no delimiter) of ext2 file attributes which are to be ignored in the final report.
 
@@ -276,6 +276,23 @@ Timeout of "aide --init" run.
 
 Default value: `300`.
 
+### `cat_path`
+
+Data type: String.
+
+The cat command path. This is based on the system
+
+Default value: `/usr/bin/cat`
+
+### `rm_path`
+
+Data type: String.
+
+The rm command path. This is based on the system
+
+Default value: `/usr/bin/rm`
+
+
 ## Hiera
 
 Values can be set using hiera, for example:
@@ -294,7 +311,7 @@ cp /var/lib/aide/aide.db.new /var/lib/aide/aide.db
 
 ## Limitations
 
-This module currently supports RedHat, CentOS, Debian and Ubuntu Linux but it has been fully tested on Ubuntu 16.04 and Ubuntu 18.04.
+This module currently supports RedHat, CentOS, Debian and Ubuntu Linux but it has been fully tested on Ubuntu 18.04 and Ubuntu 20.04.
 
 ## Contributing
 

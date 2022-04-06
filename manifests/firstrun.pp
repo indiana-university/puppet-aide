@@ -3,14 +3,17 @@
 #
 #@summary This class creates the initial database used for performing checks.
 #
+#@param aide_path, cat_path, db_temp_path, db_path, init_timeout
+#       reference README file
+#
 # @example
 #   include aide::firstrun
 class aide::firstrun (
-  $aide_path,
-  $conf_path,
-  $db_temp_path,
-  $db_path,
-  $init_timeout,
+  String $aide_path,
+  String $conf_path,
+  String $db_temp_path,
+  String $db_path,
+  Integer $init_timeout,
 ) {
   exec { 'aide init':
     command     => "nice ionice -c3 ${aide_path} --init --config ${conf_path}",

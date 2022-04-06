@@ -3,13 +3,17 @@
 #
 #@summary This defines a path/rule combination in the aide.conf file
 #
+#@param type defines the type of watch to be used.
+#@param rules defines the aide rules to be setup.
+#@param order defines the order of applying the rules.
+#
 # @example
 #   aide::watch { 'namevar': }
 define aide::watch (
   Stdlib::Absolutepath $path = $name,
-  $type  = 'regular',
-  $rules = undef,
-  $order = 50,
+  String $type  = 'regular',
+  Array $rules = undef,
+  Integer $order = 50,
 ) {
   include aide
 

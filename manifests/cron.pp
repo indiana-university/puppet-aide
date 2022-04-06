@@ -3,19 +3,22 @@
 #
 #@summary This class manages the aide's cron job.
 #
+#@param aide_path, cat_path, rm_path, mail_path, conf_path, minute, hour, nocheck, mailto, mail_only_on_changes
+#       reference README file
+#
 # @example
 #   include aide::cron
 class aide::cron (
-  $aide_path,
-  $cat_path,
-  $rm_path,
-  $mail_path,
-  $conf_path,
-  $minute,
-  $hour,
-  $nocheck,
-  $mailto,
-  $mail_only_on_changes,
+  String $aide_path,
+  String $cat_path,
+  String $rm_path,
+  String $mail_path,
+  String $conf_path,
+  Integer $minute,
+  Integer $hour,
+  Integer $nocheck,
+  String $mailto,
+  Boolean $mail_only_on_changes,
 ) {
   # Throttle I/O with nice and ionice
   $io = 'nice ionice -c3'

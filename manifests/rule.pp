@@ -3,10 +3,13 @@
 #
 #@summary This defines a rule that should be included in the aide.conf file.
 #
+#@param rules defines the aide rules to be setup
+#@param order defines the order of applying the rules
+#
 # @example
 #   aide::rule { 'namevar': }
 define aide::rule (
-  $rules,
+  Array $rules,
   String $order = '03',
 ) {
   include aide
