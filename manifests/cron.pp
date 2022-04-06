@@ -1,10 +1,18 @@
 # Copyright © 2019 The Trustees of Indiana University
 # SPDX-License-Identifier: BSD-3-Clause
 #
-#@summary This class manages the aide's cron job.
+#@summary This class manages the aide's cron job. For all params reference README.
 #
-#@param aide_path, cat_path, rm_path, mail_path, conf_path, minute, hour, nocheck, mailto, mail_only_on_changes
-#       reference README file
+#@param aide_path
+#@param cat_path
+#@param rm_path
+#@param mail_path
+#@param conf_path
+#@param minute
+#@param hour
+#@nocheck
+#@param mailto
+#@param mail_only_on_changes
 #
 # @example
 #   include aide::cron

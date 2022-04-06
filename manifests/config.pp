@@ -2,8 +2,14 @@
 # SPDX-License-Identifier: BSD-3-Clause
 #
 #@summary This class manages aide configurations.
-#@param conf_path, db_path, db_temp_path, gzip_dbout, aide_log, syslogout, report_ignore_e2fsattrs and config_template
-#       reference README file.
+#@param conf_path
+#@param db_path
+#@param db_temp_path
+#@param gzip_dbout
+#@param aide_log
+#@param syslogout
+#@param report_ignore_e2fsattrs
+#@param config_template
 #
 #@example
 #   include aide::config

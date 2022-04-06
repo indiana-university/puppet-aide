@@ -1,10 +1,13 @@
 # Copyright © 2019 The Trustees of Indiana University
 # SPDX-License-Identifier: BSD-3-Clause 
 #
-#@summary This class creates the initial database used for performing checks.
+#@summary This class creates the initial database used for performing checks. For all params reference README.
 #
-#@param aide_path, cat_path, db_temp_path, db_path, init_timeout
-#       reference README file
+#@param aide_path
+#@param cat_path
+#@param db_temp_path
+#@param db_path
+#@param init_timeout
 #
 # @example
 #   include aide::firstrun
@@ -32,7 +35,7 @@ class aide::firstrun (
   }
 
   file { $db_path:
-    ensure  => present,
+    ensure  => file,
     owner   => root,
     group   => root,
     mode    => '0600',

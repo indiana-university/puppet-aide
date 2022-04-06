@@ -10,7 +10,7 @@
 #   AIDE package name. Default is set to aide.
 #
 #@param version
-#   AIDE version for installation passed to Package::ensure. Default is set to latest.
+#   AIDE version for installation passed to Package ensure. Default is set to latest.
 #
 #@param conf_path
 #   Location of AIDE configuration file.
@@ -67,6 +67,8 @@
 #   The default is to not ignore any ext2 file attribute.
 #@param cat_path is the system cat command path.
 #@param rm_path is the system rm command path.
+#@param aide_path is the aide path
+#@param mail_path is the aide path
 class aide (
   String $package,
   String $version,

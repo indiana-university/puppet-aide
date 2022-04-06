@@ -3,6 +3,7 @@
 #
 #@summary This defines a path/rule combination in the aide.conf file
 #
+#@param path specifies the path for files or directories to watch.
 #@param type defines the type of watch to be used.
 #@param rules defines the aide rules to be setup.
 #@param order defines the order of applying the rules.
