@@ -1,4 +1,4 @@
-# Copyright © 2019 The Trustees of Indiana University
+# Copyright © 2022 The Trustees of Indiana University
 # SPDX-License-Identifier: BSD-3-Clause 
 #
 #@summary This class creates the initial database used for performing checks. For all params reference README.

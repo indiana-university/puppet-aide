@@ -1,7 +1,7 @@
-# Copyright © 2019 The Trustees of Indiana University
+# Copyright © 2022 The Trustees of Indiana University
 # SPDX-License-Identifier: BSD-3-Clause
 #
-#@summary The class manages the installation and configuration of AIDE
+#@summary The class manages the installation and configuration of Advanced Intrusion Detection Environment.
 #
 #@example
 #   include aide
