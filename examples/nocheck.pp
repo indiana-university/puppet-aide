@@ -7,10 +7,10 @@ node default {
     nocheck => true,
   }
   aide::rule { 'MyRule':
-    rules => [ 'p', ],
+    rules => ['p'],
   }
   aide::watch { '/etc':
     path  => '/etc',
-    rules => 'MyRule'
+    rules => 'MyRule',
   }
 }

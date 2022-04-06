@@ -86,8 +86,7 @@ class aide (
   $cat_path,
   $rm_path,
   $mail_path,
-){
-
+) {
   # Used to throttle I/O and CPU load of AIDE.
   package { 'util-linux':
     ensure => 'present',
@@ -98,18 +97,18 @@ class aide (
   }
 
   -> class { '::aide::cron':
-      aide_path            => $aide_path,
-      cat_path             => $cat_path,
-      rm_path              => $rm_path,
-      mail_path            => $mail_path,
-      minute               => $minute,
-      hour                 => $hour,
-      nocheck              => $nocheck,
-      mailto               => $mailto,
-      mail_only_on_changes => $mail_only_on_changes,
-      conf_path            => $conf_path,
-      require              => Package[$package],
-    }
+    aide_path            => $aide_path,
+    cat_path             => $cat_path,
+    rm_path              => $rm_path,
+    mail_path            => $mail_path,
+    minute               => $minute,
+    hour                 => $hour,
+    nocheck              => $nocheck,
+    mailto               => $mailto,
+    mail_only_on_changes => $mail_only_on_changes,
+    conf_path            => $conf_path,
+    require              => Package[$package],
+  }
 
   -> class { '::aide::config':
     conf_path               => $conf_path,
@@ -123,7 +122,7 @@ class aide (
     require                 => Package[$package],
   }
 
-  ~> class  { '::aide::firstrun':
+  ~> class { '::aide::firstrun':
     aide_path    => $aide_path,
     conf_path    => $conf_path,
     db_temp_path => $db_temp_path,

@@ -17,7 +17,6 @@ class aide::cron (
   $mailto,
   $mail_only_on_changes,
 ) {
-
   # Throttle I/O with nice and ionice
   $io = 'nice ionice -c3'
 

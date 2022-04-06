@@ -11,7 +11,6 @@ define aide::watch (
   $rules = undef,
   $order = 50,
 ) {
-
   include aide
 
   $_rules = any2array($rules)

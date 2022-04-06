@@ -15,7 +15,6 @@ class aide::config (
   $report_ignore_e2fsattrs,
   $config_template,
 ) {
-
   concat { 'aide.conf':
     path  => $conf_path,
     owner => 'root',

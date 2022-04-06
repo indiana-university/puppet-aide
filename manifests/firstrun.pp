@@ -12,7 +12,6 @@ class aide::firstrun (
   $db_path,
   $init_timeout,
 ) {
-
   exec { 'aide init':
     command     => "nice ionice -c3 ${aide_path} --init --config ${conf_path}",
     user        => 'root',

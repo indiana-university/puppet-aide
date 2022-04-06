@@ -7,14 +7,14 @@ node default {
     hour   => 1,
   }
   aide::rule { 'MyRule':
-    rules => [ 'p', 'sha256'],
+    rules => ['p', 'sha256'],
   }
   aide::watch { '/etc':
     path  => '/etc',
-    rules => 'MyRule'
+    rules => 'MyRule',
   }
   aide::watch { '/boot':
     path  => '/boot',
-    rules => 'MyRule'
+    rules => 'MyRule',
   }
 }
