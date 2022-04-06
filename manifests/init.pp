@@ -65,7 +65,6 @@
 #   Use '0' to not ignore any attribute.
 #   Ignored attributes are represented by a ':' in the output.
 #   The default is to not ignore any ext2 file attribute.
-
 class aide (
   $package,
   $version,

@@ -1,5 +1,19 @@
 # Changelog
 
+## Release 2.0.0
+
+**Enhancements**
+
+* Updated pdk
+* Dropped Ubuntu 16.04 support
+* Added Ubuntu 20.04 support
+* Dropped support for Debian 7 and 8
+* Added support for Debian 9, 10, 11
+* Dropped support for RedHat 6
+* Added support for RedHat 8
+* Dropped support for Centos 6 and 7
+* Added support for Centos 8 and 9
+
 ## Release 1.3.5
 
 **Enhancements**

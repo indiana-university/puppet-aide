@@ -5,11 +5,9 @@
 #
 # @example
 #   aide::rule { 'namevar': }
-
 define aide::rule (
   $rules,
   String $order = '03',
-
 ) {
   include aide
 
