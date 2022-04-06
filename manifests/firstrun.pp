@@ -4,7 +4,7 @@
 #@summary This class creates the initial database used for performing checks. For all params reference README.
 #
 #@param aide_path
-#@param cat_path
+#@param conf_path
 #@param db_temp_path
 #@param db_path
 #@param init_timeout

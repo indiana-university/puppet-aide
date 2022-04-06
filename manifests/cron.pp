@@ -10,7 +10,7 @@
 #@param conf_path
 #@param minute
 #@param hour
-#@nocheck
+#@param nocheck
 #@param mailto
 #@param mail_only_on_changes
 #

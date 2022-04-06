@@ -1,7 +1,7 @@
 # Copyright © 2019 The Trustees of Indiana University
 # SPDX-License-Identifier: BSD-3-Clause
 #
-#@summary The aide class manages the installation and configuration of aide
+#@summary The class manages the installation and configuration of aide
 #
 #@example
 #   include aide
