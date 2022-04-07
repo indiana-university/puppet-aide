@@ -1,0 +1,27 @@
+---
+default:
+  provisioner: docker
+  images:
+    - litmusimage/ubuntu:18.04
+    - litmusimage/ubuntu:20.04
+    - litmusimage/centos:8
+    - litmusimage/centos:9
+    - litmusimage/debian:9
+    - litmusimage/debian:10
+    - litmusimage/debian:11
+ubuntu:
+  provisioner: docker
+  images:
+    - litmusimage/ubuntu:18.04
+    - litmusimage/ubuntu:20.04
+debian:
+  provisioner: docker
+  images:
+    - litmusimage/debian:9
+    - litmusimage/debian:10
+    - litmusimage/debian:11
+centos:
+  provisioner: docker
+  images:
+    - litmusimage/centos:8
+    - litmusimage/centos:9
