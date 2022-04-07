@@ -4,14 +4,14 @@ aide::package: 'aide'
 aide::version: 'latest'
 aide::db_path: '/var/lib/aide/aide.db'
 aide::db_temp_path: '/var/lib/aide/aide.db.new'
-aide::gzip_dbout: 'no'
+aide::gzip_dbout: false
 aide::aide_log: '/var/log/aide/aide.log'
 aide::syslogout: true
-aide::report_ignore_e2fsattrs: ~
+aide::report_ignore_e2fsattrs: ''
 aide::hour: 0
 aide::minute: 0
 aide::nocheck: false
-aide::mailto: ~
+aide::mailto: ''
 aide::mail_only_on_changes: false
 aide::config_template: 'aide/aide.conf.erb'
 aide::cron_template: 'aide/cron.erb'
