@@ -24,7 +24,7 @@ class aide::cron (
   String $conf_path,
   Integer $minute,
   Integer $hour,
-  Integer $nocheck,
+  Boolean $nocheck,
   String $mailto,
   Boolean $mail_only_on_changes,
 ) {

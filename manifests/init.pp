@@ -84,7 +84,7 @@ class aide (
   Boolean $syslogout,
   Integer $minute,
   Integer $hour,
-  Integer $nocheck,
+  Boolean $nocheck,
   String $mailto,
   Boolean $mail_only_on_changes,
   Integer $init_timeout,

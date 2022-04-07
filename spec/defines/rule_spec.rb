@@ -4,7 +4,7 @@ describe 'aide::rule' do
   let(:title) { 'namevar' }
   let(:params) do
     {
-      'rules' => 'p+i',
+      'rules' => ['p+i'],
     }
   end
 

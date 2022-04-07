@@ -9,10 +9,10 @@ describe 'aide::config' do
           'conf_path'               => '/etc/aide/aide.conf',
           'db_path'                 => '/var/lib/aide/aide.db',
           'db_temp_path'            => '/var/lib/aide/aide.db.new',
-          'gzip_dbout'              => 'no',
+          'gzip_dbout'              => false,
           'aide_log'                => '/var/log/aide/aide.log',
           'syslogout'               => true,
-          'report_ignore_e2fsattrs' => :undef,
+          'report_ignore_e2fsattrs' => '',
           'config_template'         => 'aide/aide.conf.erb',
         }
       end
