@@ -15,10 +15,10 @@ describe 'apply aide' do
   end
 
   describe 'aide' do
-    it { is_expected.to contain_class('aide')
-    it { is_expected.to contain_class('aide::cron')
-    it { is_expected.to contain_class('aide::config') 
-    it { is_expected.to contain_class('aide::firstrun')
+    it { is_expected.to contain_class('aide') }
+    it { is_expected.to contain_class('aide::cron') }
+    it { is_expected.to contain_class('aide::config') }
+    it { is_expected.to contain_class('aide::firstrun') }
   end
 
   describe package('aide') do
