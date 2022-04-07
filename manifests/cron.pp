@@ -25,7 +25,7 @@ class aide::cron (
   Integer $minute,
   Integer $hour,
   Boolean $nocheck,
-  String $mailto,
+  Optional[String] $mailto,
   Boolean $mail_only_on_changes,
 ) {
   # Throttle I/O with nice and ionice

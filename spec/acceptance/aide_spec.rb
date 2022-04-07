@@ -8,6 +8,9 @@ describe 'apply aide' do
   end
 
   it 'applies idempotently' do
+    if host_inventory['facter']['os']['name'] == 'CentOS'
+      run_shell('yum install cronie -y')
+    end
     idempotent_apply(pp)
   end
 
@@ -19,3 +22,6 @@ describe 'apply aide' do
     it { is_expected.to contain_package('aide') }
   end
 end
+
+
+yum install cronie -y

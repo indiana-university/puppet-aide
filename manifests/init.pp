@@ -85,7 +85,7 @@ class aide (
   Integer $minute,
   Integer $hour,
   Boolean $nocheck,
-  String $mailto,
+  Optional[String] $mailto,
   Boolean $mail_only_on_changes,
   Integer $init_timeout,
   String $cat_path,
