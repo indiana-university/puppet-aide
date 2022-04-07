@@ -79,7 +79,7 @@ class aide (
   String $aide_path,
   String $mail_path,
   String $config_template,
-  String $report_ignore_e2fsattrs,
+  Optional[String] $report_ignore_e2fsattrs,
   String $aide_log,
   Boolean $syslogout,
   Integer $minute,

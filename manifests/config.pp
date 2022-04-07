@@ -20,7 +20,7 @@ class aide::config (
   Boolean $gzip_dbout,
   String $aide_log,
   Boolean $syslogout,
-  String $report_ignore_e2fsattrs,
+  Optional[String] $report_ignore_e2fsattrs,
   String $config_template,
 ) {
   concat { 'aide.conf':

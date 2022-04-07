@@ -14,6 +14,7 @@
 * Dropped support for Centos 6 and 7
 * Added support for Centos 8 and 9
 * Fixed puppet-lint validation issues
+* Added acceptance test
 
 ## Release 1.3.5
 

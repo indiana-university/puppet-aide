@@ -12,7 +12,7 @@ describe 'aide::config' do
           'gzip_dbout'              => false,
           'aide_log'                => '/var/log/aide/aide.log',
           'syslogout'               => true,
-          'report_ignore_e2fsattrs' => '',
+          'report_ignore_e2fsattrs' => :undef,
           'config_template'         => 'aide/aide.conf.erb',
         }
       end
