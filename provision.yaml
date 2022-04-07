@@ -4,7 +4,7 @@ default:
   images:
     - litmusimage/ubuntu:18.04
     - litmusimage/ubuntu:20.04
-    - litmusimage/centos:8
+    - litmusimage/centos:stream8
     - litmusimage/debian:9
     - litmusimage/debian:10
 ubuntu:
@@ -20,4 +20,4 @@ debian:
 centos:
   provisioner: docker
   images:
-    - litmusimage/centos:8
+    - litmusimage/centos:stream8
