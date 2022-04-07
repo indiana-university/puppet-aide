@@ -8,7 +8,7 @@
 * Dropped Ubuntu 16.04 support
 * Added Ubuntu 20.04 support
 * Dropped support for Debian 7 and 8
-* Added support for Debian 9, 10, 11
+* Added support for Debian 9 and 10
 * Dropped support for RedHat 6
 * Added support for RedHat 8
 * Dropped support for Centos 6 and 7
