@@ -22,6 +22,3 @@ describe 'apply aide' do
     it { is_expected.to contain_package('aide') }
   end
 end
-
-
-yum install cronie -y
