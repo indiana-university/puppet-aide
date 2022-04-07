@@ -4,9 +4,6 @@ describe 'apply aide' do
   let(:pp) do
     <<-MANIFEST
       include aide
-      include aide::cron
-      include aide::config
-      include aide::firstrun
     MANIFEST
   end
 
