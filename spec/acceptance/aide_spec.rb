@@ -13,12 +13,9 @@ describe 'apply aide' do
     end
     idempotent_apply(pp)
   end
-
-  describe 'aide' do
-    it { is_expected.to contain_class('aide') }
-    it { is_expected.to contain_class('aide::cron') }
-    it { is_expected.to contain_class('aide::config') }
-    it { is_expected.to contain_class('aide::firstrun') }
-    it { is_expected.to contain_package('aide') }
+  
+  describe package('aide') do
+    it { should be_installed}
   end
+
 end
