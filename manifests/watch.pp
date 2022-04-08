@@ -13,7 +13,7 @@
 define aide::watch (
   Stdlib::Absolutepath $path = $name,
   String $type  = 'regular',
-  Variant[Array, String] $rules = undef,
+  Variant[Optional[Array, String]] $rules = undef,
   Integer $order = 50,
 ) {
   include aide
