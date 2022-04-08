@@ -13,9 +13,4 @@ describe 'apply aide' do
     end
     idempotent_apply(pp)
   end
-  
-  describe package('aide') do
-    it { should be_installed}
-  end
-
 end
