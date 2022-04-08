@@ -6,7 +6,7 @@ describe 'aide::watch' do
     {
       'path'  => '/etc',
       'type'  => 'regular',
-      'rules' => 'NORMAL',
+      'rules' => ['NORMAL'],
       'order' => 50,
     }
   end

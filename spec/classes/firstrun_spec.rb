@@ -11,7 +11,7 @@ describe 'aide::firstrun' do
           'conf_path'     => '/etc/aide/aide.conf',
           'db_temp_path'  => '/var/lib/aide/aide.db.new',
           'db_path'       => '/var/lib/aide/aide.db',
-          'init_timeout'  => '300',
+          'init_timeout'  => 300,
         }
       end
 

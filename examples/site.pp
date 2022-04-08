@@ -1,4 +1,4 @@
-# Copyright © 2019 The Trustees of Indiana University
+# Copyright © 2022 The Trustees of Indiana University
 # SPDX-License-Identifier: BSD-3-Clause 
 #
 node default {
@@ -7,14 +7,14 @@ node default {
     hour   => 1,
   }
   aide::rule { 'MyRule':
-    rules => [ 'p', 'sha256'],
+    rules => ['p', 'sha256'],
   }
   aide::watch { '/etc':
     path  => '/etc',
-    rules => 'MyRule'
+    rules => 'MyRule',
   }
   aide::watch { '/boot':
     path  => '/boot',
-    rules => 'MyRule'
+    rules => 'MyRule',
   }
 }

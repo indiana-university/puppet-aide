@@ -1,23 +1,33 @@
-# Copyright © 2019 The Trustees of Indiana University
+# Copyright © 2022 The Trustees of Indiana University
 # SPDX-License-Identifier: BSD-3-Clause
 #
-#@summary This class manages the aide's cron job.
+#@summary This class manages the aide's cron job. For all params reference README.
+#
+#@param aide_path
+#@param cat_path
+#@param rm_path
+#@param mail_path
+#@param conf_path
+#@param minute
+#@param hour
+#@param nocheck
+#@param mailto
+#@param mail_only_on_changes
 #
 # @example
 #   include aide::cron
 class aide::cron (
-  $aide_path,
-  $cat_path,
-  $rm_path,
-  $mail_path,
-  $conf_path,
-  $minute,
-  $hour,
-  $nocheck,
-  $mailto,
-  $mail_only_on_changes,
+  String $aide_path,
+  String $cat_path,
+  String $rm_path,
+  String $mail_path,
+  String $conf_path,
+  Integer $minute,
+  Integer $hour,
+  Boolean $nocheck,
+  Optional[String] $mailto,
+  Boolean $mail_only_on_changes,
 ) {
-
   # Throttle I/O with nice and ionice
   $io = 'nice ionice -c3'
 

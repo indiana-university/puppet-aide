@@ -1,17 +1,21 @@
-# Copyright © 2019 The Trustees of Indiana University
+# Copyright © 2022 The Trustees of Indiana University
 # SPDX-License-Identifier: BSD-3-Clause  
 #
 #@summary This defines a path/rule combination in the aide.conf file
+#
+#@param path specifies the path for files or directories to watch.
+#@param type defines the type of watch to be used.
+#@param rules defines the aide rules to be setup.
+#@param order defines the order of applying the rules.
 #
 # @example
 #   aide::watch { 'namevar': }
 define aide::watch (
   Stdlib::Absolutepath $path = $name,
-  $type  = 'regular',
-  $rules = undef,
-  $order = 50,
+  String $type  = 'regular',
+  Optional[Variant[Array, String]] $rules = undef,
+  Integer $order = 50,
 ) {
-
   include aide
 
   $_rules = any2array($rules)

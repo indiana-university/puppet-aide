@@ -1,15 +1,16 @@
-# Copyright © 2019 The Trustees of Indiana University
+# Copyright © 2022 The Trustees of Indiana University
 # SPDX-License-Identifier: BSD-3-Clause  
 #
 #@summary This defines a rule that should be included in the aide.conf file.
 #
+#@param rules defines the aide rules to be setup
+#@param order defines the order of applying the rules
+#
 # @example
 #   aide::rule { 'namevar': }
-
 define aide::rule (
-  $rules,
+  Optional[Variant[Array, String]] $rules = undef,
   String $order = '03',
-
 ) {
   include aide
 
