@@ -4,6 +4,7 @@
 
 **Enhancements**
 
+* Added ordering option
 * Updated pdk
 * Dropped Ubuntu 16.04 support
 * Added Ubuntu 20.04 support
