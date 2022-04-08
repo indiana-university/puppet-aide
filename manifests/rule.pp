@@ -9,7 +9,7 @@
 # @example
 #   aide::rule { 'namevar': }
 define aide::rule (
-  Variant[Optional[Array, String]] $rules,
+  Optional[Variant[Array, String]] $rules,
   String $order = '03',
 ) {
   include aide
