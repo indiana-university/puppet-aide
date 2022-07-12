@@ -22,8 +22,11 @@ class aide::cron (
   String $rm_path,
   String $mail_path,
   String $conf_path,
-  Integer $minute,
-  Integer $hour,
+  Cron::Minute $minute,
+  Cron::Hour $hour,
+  Cron::Date $date,
+  Cron::Month $month,
+  Cron::Weekday $weekday,
   Boolean $nocheck,
   Optional[String] $mailto,
   Boolean $mail_only_on_changes,
@@ -40,30 +43,26 @@ class aide::cron (
   if $mailto != undef {
     $settings = "${aide_path} --config ${conf_path} --check"
     $email_subject = "\"\$(hostname) - AIDE Integrity Check\" ${mailto}"
+
     if $mail_only_on_changes {
-      cron::job { 'aide' :
-        ensure  => $cron_ensure,
-        command => "AIDE_OUT=$(${io} ${settings} 2>&1) || echo \"\${AIDE_OUT}\" | ${cat_path} -v | ${mail_path} -E -s ${email_subject}",
-        user    => 'root',
-        hour    => $hour,
-        minute  => $minute,
-      }
+      $cron_command = "AIDE_OUT=$(${io} ${settings} 2>&1) || echo \"\${AIDE_OUT}\" | ${cat_path} -v | ${mail_path} -E -s ${email_subject}"
     } else {
-      cron::job { 'aide':
-        ensure  => $cron_ensure,
-        command => "${io} ${settings} | ${cat_path} -v | ${mail_path} -s ${email_subject}",
-        user    => 'root',
-        hour    => $hour,
-        minute  => $minute,
-      }
+      $cron_command = "${io} ${settings} | ${cat_path} -v | ${mail_path} -s ${email_subject}"
     }
   } else {
-    cron::job { 'aide':
-      ensure  => $cron_ensure,
-      command => "${io} ${aide_path} --config ${conf_path} --check",
-      user    => 'root',
-      hour    => $hour,
-      minute  => $minute,
-    }
+    $cron_command = "${io} ${aide_path} --config ${conf_path} --check"
   }
+
+  # Create the AIDE cron job.
+  cron::job { 'aide':
+    ensure  => $cron_ensure,
+    command => $cron_command ,
+    user    => 'root',
+    hour    => $hour,
+    minute  => $minute,
+    date    => $date,
+    month   => $month,
+    weekday => $weekday
+  }
+
 }
