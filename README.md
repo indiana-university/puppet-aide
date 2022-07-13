@@ -43,6 +43,7 @@ Include the aide class and set cron run time to 6am with mail to a user other th
     class { 'aide':
       minute => 0,
       hour   => 6,
+      day    => 3,
     }
 
 Watch permissions of all files on filesystem
@@ -118,7 +119,7 @@ This will watch only the file /var/log/messages.  It will ignore /var/log/messag
 
 ## Cron
 
-A cron job is created during installation to run aide checks that use the `hour` and `minute` parameters to specify the run time.
+A cron job is created during installation to run aide checks that use the `minute`, `hour`, `day`, `month` and `weekday` parameters to specify the run time.
 
 This cron job can be disabled by setting the `aide::nocheck` parameter.
 
@@ -230,7 +231,7 @@ Default value: `true`.
 
 #### `minute`
 
-Data type: Integer.
+Data type: Cron::Minute (Integer)
 
 Minute of cron job to run
 
@@ -238,11 +239,35 @@ Default value: `0`.
 
 #### `hour`
 
-Data type: Integer.
+Data type: Cron::Hour (Integer).
 
 Hour of cron job to run
 
 Default value: `0`.
+
+#### `date`
+
+Data type: Cron::Date (Integer).
+
+Date of cron job to run
+
+Default value: `*`.
+
+#### `month`
+
+Data type: Cron::Month (Integer).
+
+Month of cron job to run
+
+Default value: `*`.
+
+#### `weekday`
+
+Data type: Cron::Weekday (Integer).
+
+Day of week of cron job to run
+
+Default value: `*`.
 
 #### `nocheck`
 

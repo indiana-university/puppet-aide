@@ -42,6 +42,15 @@
 #@param minute
 #   Minute of cron job to run.
 #
+#@param date
+#   Date of cron job to run.
+#
+#@param month
+#   Month of cron job to run.
+#
+#@param weekday
+#   Day of week of cron job to run.
+#
 #@param nocheck
 #   Whether to enable or disable scheduled checks.
 #
@@ -82,8 +91,11 @@ class aide (
   Optional[String] $report_ignore_e2fsattrs,
   String $aide_log,
   Boolean $syslogout,
-  Integer $minute,
-  Integer $hour,
+  Cron::Minute        $minute      = '0',
+  Cron::Hour          $hour        = '0',
+  Cron::Date          $date        = '*',
+  Cron::Month         $month       = '*',
+  Cron::Weekday       $weekday     = '*',
   Boolean $nocheck,
   Optional[String] $mailto,
   Boolean $mail_only_on_changes,
@@ -107,6 +119,9 @@ class aide (
     mail_path            => $mail_path,
     minute               => $minute,
     hour                 => $hour,
+    date                 => $date,
+    month                => $month,
+    weekday              => $weekday,
     nocheck              => $nocheck,
     mailto               => $mailto,
     mail_only_on_changes => $mail_only_on_changes,
