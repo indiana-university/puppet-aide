@@ -36,15 +36,33 @@ are already installed on your puppet server. They are as follows:
 
 ## Examples
 
-==========
-
-Include the aide class and set cron run time to 6am with mail to a user other than root
+Include the aide class and set cron run time to 6am with mail to a user other than root.
 ----------
     class { 'aide':
       minute => 0,
       hour   => 6,
       day    => 3,
     }
+
+Include the aide class and exclude the ''--config /etc/aide.conf'' argument. 
+----------
+
+This is useful if you are using a 3rd-party security/scanning tool that fails to verify you're running AIDE via a CRON job due to a bad regex on the vendor side.
+
+    class { 'aide':
+      minute                 => 0,
+      hour                   => 17,
+      day                    => 22,
+      exclude_config_argment => true, 
+    }
+
+This results in the cron job:
+
+    0 17 22 * *  root  nice ionice -c3 /usr/sbin/aide --check
+
+instead of:
+
+    0 17 22 * *  root  nice ionice -c3 /usr/sbin/aide --config /etc/aide.conf --check
 
 Watch permissions of all files on filesystem
 ----------

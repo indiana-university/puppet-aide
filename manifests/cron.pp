@@ -13,6 +13,10 @@
 #@param nocheck
 #@param mailto
 #@param mail_only_on_changes
+#@param exclude_config_argment
+# Default: False
+# Exclude the '--config ${conf_path}' argument from the CRON job.  This is helpful if you have
+# 3rd party hardening scripts that are causing false negatives for AIDE runs.
 #
 # @example
 #   include aide::cron
@@ -30,6 +34,7 @@ class aide::cron (
   Boolean $nocheck,
   Optional[String] $mailto,
   Boolean $mail_only_on_changes,
+  Boolean $exclude_config_argument = false,
 ) {
   # Throttle I/O with nice and ionice
   $io = 'nice ionice -c3'
@@ -40,8 +45,13 @@ class aide::cron (
     $cron_ensure = 'present'
   }
 
+  $config_command = $exclude_config_argument ? {
+    false => "--config ${conf_path} ",    # Trailing space is important.
+    true  => undef,
+  }
+
   if $mailto != undef {
-    $settings = "${aide_path} --config ${conf_path} --check"
+    $settings = "${aide_path} ${config_command}--check"
     $email_subject = "\"\$(hostname) - AIDE Integrity Check\" ${mailto}"
 
     if $mail_only_on_changes {
@@ -50,8 +60,9 @@ class aide::cron (
       $cron_command = "${io} ${settings} | ${cat_path} -v | ${mail_path} -s ${email_subject}"
     }
   } else {
-    $cron_command = "${io} ${aide_path} --config ${conf_path} --check"
+    $cron_command = "${io} ${aide_path} ${config_command}--check"
   }
+
 
   # Create the AIDE cron job.
   cron::job { 'aide':
