@@ -39,7 +39,6 @@
     {
       "operatingsystem": "Debian",
       "operatingsystemrelease": [
-        "9",
         "10",
         "11"
       ]
@@ -69,7 +68,7 @@
     "cis-benchmarks",
     "cis"
   ],
-  "pdk-version": "2.4.0",
+  "pdk-version": "2.5.0",
   "template-url": "https://github.com/puppetlabs/pdk-templates.git#main",
-  "template-ref": "heads/main-0-g0675e97"
+  "template-ref": "heads/main-0-g775db77"
 }

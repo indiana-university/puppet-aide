@@ -1,10 +1,19 @@
 # Changelog
 
+## Release 2.1.0
+
+**Enhancements**
+
+* Added day, month and day of week option to cron job [#12](https://github.com/indiana-university/puppet-aide/pull/12) ([bschonec](https://github.com/bschonec))
+* Updated pdk
+* Removed support for Debian 9
+
+
 ## Release 2.0.0
 
 **Enhancements**
 
-* Added ordering option
+* Added ordering option [#8](https://github.com/indiana-university/puppet-aide/pull/8) ([brentclark](https://github.com/brentclark))
 * Updated pdk
 * Dropped Ubuntu 16.04 support
 * Added Ubuntu 20.04 support
@@ -28,7 +37,7 @@
 
 **Enhancements**
 
-* Added `report_ignore_e2fsattrs` support
+* Added `report_ignore_e2fsattrs` support [#7](https://github.com/indiana-university/puppet-aide/pull/7) ([olifre](https://github.com/olifre))
 * Updated README
 * Added github badges
 
@@ -36,8 +45,8 @@
 
 **Enhancements**
 
-* Fixed deprecated `validate_legacy` warnings and switched from using params to hiera
-* Added `nice` and `ionice` to throttle I/O and CPU load of AIDE
+* Fixed deprecated `validate_legacy` warnings and switched from using params to hiera [#6](https://github.com/indiana-university/puppet-aide/pull/6) ([cheyngoodman ](https://github.com/cheyngoodman))
+* Added `nice` and `ionice` to throttle I/O and CPU load of AIDE  [#5](https://github.com/indiana-university/puppet-aide/pull/7) ([olifre](https://github.com/olifre))
 * Added unit test for `util-linux` package
 * Added path to `aide init` exec command in `firstrun.pp`
 * Update pdk to latest version
@@ -46,7 +55,7 @@
 
 **Bugfixes**
 
-* Pass correct variable to `mail_only_on_changes`
+* Pass correct variable to `mail_only_on_changes` [#3](https://github.com/indiana-university/puppet-aide/pull/3) ([twem](https://github.com/twem))
 * Updated pdk
 
 ## Release 1.0.4
