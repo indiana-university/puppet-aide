@@ -91,17 +91,17 @@ class aide (
   Optional[String] $report_ignore_e2fsattrs,
   String $aide_log,
   Boolean $syslogout,
-  Cron::Minute        $minute      = '0',
-  Cron::Hour          $hour        = '0',
-  Cron::Date          $date        = '*',
-  Cron::Month         $month       = '*',
-  Cron::Weekday       $weekday     = '*',
   Boolean $nocheck,
   Optional[String] $mailto,
   Boolean $mail_only_on_changes,
   Integer $init_timeout,
   String $cat_path,
   String $rm_path,
+  Cron::Minute        $minute      = '0',
+  Cron::Hour          $hour        = '0',
+  Cron::Date          $date        = '*',
+  Cron::Month         $month       = '*',
+  Cron::Weekday       $weekday     = '*',
 ) {
   # Used to throttle I/O and CPU load of AIDE.
   package { 'util-linux':
