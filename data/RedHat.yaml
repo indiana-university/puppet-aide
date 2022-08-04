@@ -1,5 +1,6 @@
 aide::aide_path: '/usr/sbin/aide'
 aide::cat_path: '/usr/bin/cat'
 aide::rm_path: '/usr/bin/rm'
+aide::head_path: '/usr/bin/head'
 aide::mail_path: '/usr/bin/mail'
 aide::conf_path: '/etc/aide.conf'
