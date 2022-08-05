@@ -51,6 +51,10 @@
 #@param weekday
 #   Day of week of cron job to run.
 #
+#@param exclude_config_argment
+# Default: False
+# Exclude the '--config ${conf_path}' argument from the CRON job.  This is helpful if you have
+# 3rd party hardening scripts that are causing false negatives for AIDE runs.
 #@param nocheck
 #   Whether to enable or disable scheduled checks.
 #
@@ -102,6 +106,7 @@ class aide (
   Cron::Date          $date        = '*',
   Cron::Month         $month       = '*',
   Cron::Weekday       $weekday     = '*',
+  Boolean $exclude_config_argument = false,
 ) {
   # Used to throttle I/O and CPU load of AIDE.
   package { 'util-linux':
@@ -113,20 +118,21 @@ class aide (
   }
 
   -> class { 'aide::cron':
-    aide_path            => $aide_path,
-    cat_path             => $cat_path,
-    rm_path              => $rm_path,
-    mail_path            => $mail_path,
-    minute               => $minute,
-    hour                 => $hour,
-    date                 => $date,
-    month                => $month,
-    weekday              => $weekday,
-    nocheck              => $nocheck,
-    mailto               => $mailto,
-    mail_only_on_changes => $mail_only_on_changes,
-    conf_path            => $conf_path,
-    require              => Package[$package],
+    aide_path               => $aide_path,
+    cat_path                => $cat_path,
+    rm_path                 => $rm_path,
+    mail_path               => $mail_path,
+    minute                  => $minute,
+    hour                    => $hour,
+    date                    => $date,
+    month                   => $month,
+    weekday                 => $weekday,
+    exclude_config_argument => $exclude_config_argument,
+    nocheck                 => $nocheck,
+    mailto                  => $mailto,
+    mail_only_on_changes    => $mail_only_on_changes,
+    conf_path               => $conf_path,
+    require                 => Package[$package],
   }
 
   -> class { 'aide::config':
