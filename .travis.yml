@@ -35,11 +35,11 @@ jobs:
       rvm: 2.5.7
       stage: spec
     -
-      env: DEPLOY_TO_FORGE=no
+      env: DEPLOY_TO_FORGE=yes
       stage: deploy
 branches:
   only:
     - main
     - /^v\d/
 notifications:
-  email: kgyan@iu.edu
+  email: false
