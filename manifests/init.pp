@@ -51,7 +51,7 @@
 #@param weekday
 #   Day of week of cron job to run.
 #
-#@param exclude_config_argment
+#@param exclude_config_argument
 # Default: False
 # Exclude the '--config ${conf_path}' argument from the CRON job.  This is helpful if you have
 # 3rd party hardening scripts that are causing false negatives for AIDE runs.
