@@ -5,6 +5,7 @@
 **Enhancements**
 
 * Added day, month and day of week option to cron job [#12](https://github.com/indiana-university/puppet-aide/pull/12) ([bschonec](https://github.com/bschonec))
+* Added parameter to suppress the `--config /etc/aide.conf` argument in the cron job [#14](https://github.com/indiana-university/puppet-aide/pull/14) ([bschonec](https://github.com/bschonec))
 * Updated pdk
 * Removed support for Debian 9
 * Added unit test for day, month and day of week option
