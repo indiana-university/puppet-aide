@@ -10,6 +10,9 @@
 #@param conf_path
 #@param minute
 #@param hour
+#@param date
+#@param month
+#@param weekday
 #@param nocheck
 #@param mailto
 #@param mail_only_on_changes
@@ -73,7 +76,6 @@ class aide::cron (
     minute  => $minute,
     date    => $date,
     month   => $month,
-    weekday => $weekday
+    weekday => $weekday,
   }
-
 }
