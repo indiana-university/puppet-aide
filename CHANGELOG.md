@@ -7,6 +7,7 @@
 * Added day, month and day of week option to cron job [#12](https://github.com/indiana-university/puppet-aide/pull/12) ([bschonec](https://github.com/bschonec))
 * Updated pdk
 * Removed support for Debian 9
+* Added unit test for day, month and day of week option
 
 
 ## Release 2.0.0
