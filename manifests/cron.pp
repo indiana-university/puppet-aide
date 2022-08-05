@@ -16,7 +16,7 @@
 #@param nocheck
 #@param mailto
 #@param mail_only_on_changes
-#@param exclude_config_argment
+#@param exclude_config_argument
 # Default: False
 # Exclude the '--config ${conf_path}' argument from the CRON job.  This is helpful if you have
 # 3rd party hardening scripts that are causing false negatives for AIDE runs.
@@ -65,7 +65,6 @@ class aide::cron (
   } else {
     $cron_command = "${io} ${aide_path} ${config_command}--check"
   }
-
 
   # Create the AIDE cron job.
   cron::job { 'aide':
