@@ -13,6 +13,7 @@ describe 'aide::cron' do
           'aide_path'            => '/usr/bin/aide',
           'cat_path'             => '/bin/cat',
           'rm_path'              => '/bin/rm',
+          'head_path'            => '/bin/head',
           'mail_path'            => '/usr/bin/mail',
           'conf_path'            => '/etc/aide/aide.conf',
           'minute'               => 0,
@@ -23,6 +24,7 @@ describe 'aide::cron' do
           'nocheck'              => false,
           'mailto'               => 'aide@edu',
           'mail_only_on_changes' => false,
+          'max_mail_lines'       => 1000,
         }
       end
 

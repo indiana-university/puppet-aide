@@ -66,6 +66,10 @@
 #   mails are only sent if changes are detected by AIDE.
 #   By default this flag is set to false
 #
+#@param max_mail_lines
+#   Undef by default. If set, mail output is capped to the first
+#   max_mail_lines number of lines (to prevent too large mail bodies).
+#
 #@param init_timeout
 #   Allows to adjust timeout of the "aide --init" run.
 #   Puppet default exec timeout is 300 (which is also kept),
@@ -80,6 +84,7 @@
 #   The default is to not ignore any ext2 file attribute.
 #@param cat_path is the system cat command path.
 #@param rm_path is the system rm command path.
+#@param head_path is the system head command path.
 #@param aide_path is the aide path
 #@param mail_path is the aide path
 class aide (
@@ -98,9 +103,11 @@ class aide (
   Boolean $nocheck,
   Optional[String] $mailto,
   Boolean $mail_only_on_changes,
+  Optional[Integer[1]] $max_mail_lines,
   Integer $init_timeout,
   String $cat_path,
   String $rm_path,
+  String $head_path,
   Cron::Minute        $minute      = '0',
   Cron::Hour          $hour        = '0',
   Cron::Date          $date        = '*',
@@ -121,6 +128,7 @@ class aide (
     aide_path               => $aide_path,
     cat_path                => $cat_path,
     rm_path                 => $rm_path,
+    head_path               => $head_path,
     mail_path               => $mail_path,
     minute                  => $minute,
     hour                    => $hour,
@@ -131,6 +139,7 @@ class aide (
     nocheck                 => $nocheck,
     mailto                  => $mailto,
     mail_only_on_changes    => $mail_only_on_changes,
+    max_mail_lines          => $max_mail_lines,
     conf_path               => $conf_path,
     require                 => Package[$package],
   }
