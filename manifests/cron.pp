@@ -27,6 +27,7 @@ class aide::cron (
   String $aide_path,
   String $cat_path,
   String $rm_path,
+  String $head_path,
   String $mail_path,
   String $conf_path,
   Cron::Minute $minute,
@@ -37,6 +38,7 @@ class aide::cron (
   Boolean $nocheck,
   Optional[String] $mailto,
   Boolean $mail_only_on_changes,
+  Optional[Integer[1]] $max_mail_lines,
   Boolean $exclude_config_argument = false,
 ) {
   # Throttle I/O with nice and ionice
@@ -57,10 +59,15 @@ class aide::cron (
     $settings = "${aide_path} ${config_command}--check"
     $email_subject = "\"\$(hostname) - AIDE Integrity Check\" ${mailto}"
 
+    $_head_filter = $max_mail_lines ? {
+      undef   => '',
+      default => "${head_path} -n ${max_mail_lines} | ",
+    }
+
     if $mail_only_on_changes {
-      $cron_command = "AIDE_OUT=$(${io} ${settings} 2>&1) || echo \"\${AIDE_OUT}\" | ${cat_path} -v | ${mail_path} -E -s ${email_subject}"
+      $cron_command = "AIDE_OUT=$(${io} ${settings} 2>&1) || echo \"\${AIDE_OUT}\" | ${cat_path} -v | ${_head_filter}${mail_path} -E -s ${email_subject}"
     } else {
-      $cron_command = "${io} ${settings} | ${cat_path} -v | ${mail_path} -s ${email_subject}"
+      $cron_command = "${io} ${settings} | ${cat_path} -v | ${_head_filter}${mail_path} -s ${email_subject}"
     }
   } else {
     $cron_command = "${io} ${aide_path} ${config_command}--check"

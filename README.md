@@ -311,6 +311,14 @@ Whether to only send emails when changes are detected.
 
 Default value: `false`
 
+#### `max_mail_lines`
+
+Data type: Optional[Integer[1]]
+
+If set to a positive integer, mail messages are truncated to the given number of lines. This can be used to prevent too large mail bodies for large changesets (which may be triggered by OS updates, and not be accepted by the mail server).
+
+Default value: `undef`
+
 #### `init_timeout`
 
 Data type: Integer.
@@ -334,6 +342,14 @@ Data type: String.
 The rm command path. This is based on the system
 
 Default value: `/usr/bin/rm`
+
+### `head_path`
+
+Data type: String.
+
+The head command path. This is based on the system
+
+Default value: `/usr/bin/head`
 
 
 ## Hiera
