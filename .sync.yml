@@ -1,3 +1,14 @@
 ---
 spec/spec_helper.rb:
   mock_with: ':rspec'
+.rubocop.yml:
+  default_configs:
+    Metrics/LineLength:
+      Description: People have wide screens, use them.
+      Max: 2000
+    Layout/LineLength:
+      Description: People have wide screens, use them.
+      Max: 2000
+Rakefile:
+  extra_disabled_lint_checks:
+    - 140chars

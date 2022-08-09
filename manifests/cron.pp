@@ -6,6 +6,7 @@
 #@param aide_path
 #@param cat_path
 #@param rm_path
+#@param head_path
 #@param mail_path
 #@param conf_path
 #@param minute
@@ -16,6 +17,7 @@
 #@param nocheck
 #@param mailto
 #@param mail_only_on_changes
+#@param max_mail_lines
 #@param exclude_config_argument
 # Default: False
 # Exclude the '--config ${conf_path}' argument from the CRON job.  This is helpful if you have
