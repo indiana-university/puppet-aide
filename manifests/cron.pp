@@ -53,12 +53,12 @@ class aide::cron (
   }
 
   $config_command = $exclude_config_argument ? {
-    false => "--config ${conf_path} ",    # Trailing space is important.
+    false => "--config ${conf_path}",
     true  => undef,
   }
 
   if $mailto != undef {
-    $settings = "${aide_path} ${config_command}--check"
+    $settings = "${aide_path} ${config_command} --check"
     $email_subject = "\"\$(hostname) - AIDE Integrity Check\" ${mailto}"
 
     $_head_filter = $max_mail_lines ? {
@@ -72,13 +72,22 @@ class aide::cron (
       $cron_command = "${io} ${settings} | ${cat_path} -v | ${_head_filter}${mail_path} -s ${email_subject}"
     }
   } else {
-    $cron_command = "${io} ${aide_path} ${config_command}--check"
+    $cron_command = "${io} ${aide_path} ${config_command} --check"
   }
 
-  # Create the AIDE cron job.
+  $cron_script = '/usr/local/bin/aide_daily_check_command.sh'
+  $cron_script_header = "#!/bin/bash\n# puppet managed file, do not edit\n\n"
+  file { $cron_script:
+    ensure  => 'file',
+    content => "${cron_script_header}${cron_command}\n",
+    owner   => 'root',
+    mode    => '0755',
+  }
+
+  # Create the AIDE daily check cron job.
   cron::job { 'aide':
     ensure  => $cron_ensure,
-    command => $cron_command ,
+    command => $cron_script,
     user    => 'root',
     hour    => $hour,
     minute  => $minute,
