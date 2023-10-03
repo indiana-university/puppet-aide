@@ -5,7 +5,7 @@
 **Enahncements**
 
 * Merge pull request to update metadata dependencies (canihavethisone)
-* Update changelong and metadata
+* Update changelog and metadata
 
 ## Release 2.2.0
 
