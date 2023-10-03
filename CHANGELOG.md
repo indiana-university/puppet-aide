@@ -1,5 +1,20 @@
 # Changelog
 
+## Release 2.2.1
+
+**Enahncements**
+
+* Merge pull request to update metadata dependencies (canihavethisone)
+* Update changelong and metadata
+
+## Release 2.2.0
+
+**Enhancements**
+
+* Merge pull request to move the cron command to a script (rstuart-indue)
+* Update PDK
+* Update metadata
+
 ## Release 2.1.0
 
 **Enhancements**
