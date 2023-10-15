@@ -8,7 +8,7 @@
 * Update changelog and metadata
 
 **Breaking Changes**
-* Drop Puppet 6 and earlier support, add Puppet 7 & 8
+* Drop Puppet 6 and earlier support, add Puppet 8
 
 ## Release 2.2.0
 
