@@ -7,7 +7,7 @@
 * Merge pull request to update metadata dependencies (canihavethisone)
 * Update changelog and metadata
 
-** Breaking Changes **
+**Breaking Changes**
 * Drop Puppet 6 and earlier support, add Puppet 7 & 8
 
 ## Release 2.2.0
