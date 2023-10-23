@@ -30,9 +30,9 @@ This module will also add a cron job to periodically run the `aide --check` comm
 This module requires some additional modules, but it is highly likely that they
 are already installed on your puppet server. They are as follows:
 
-* `puppetlabs/concat` `4.0 - 8.0`
-* `puppetlabs/stdlib` `4.0 - 8.0`
-* `puppet/cron` `1.0 - 8.0`
+* `puppetlabs/concat` `9.0 - 10.0`
+* `puppetlabs/stdlib` `9.0 - 10.0`
+* `puppet/cron` `1.0 - 5.0`
 
 ## Examples
 
