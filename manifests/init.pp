@@ -108,11 +108,6 @@ class aide (
   String $cat_path,
   String $rm_path,
   String $head_path,
-  Cron::Minute        $minute      = '0',
-  Cron::Hour          $hour        = '0',
-  Cron::Date          $date        = '*',
-  Cron::Month         $month       = '*',
-  Cron::Weekday       $weekday     = '*',
   Boolean $exclude_config_argument = false,
 ) {
   # Used to throttle I/O and CPU load of AIDE.
