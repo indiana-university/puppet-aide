@@ -1,0 +1,24 @@
+---
+aide::rule:
+  MYRULE:
+    rules:
+      - p
+      - i
+      - n
+  PERMS:
+    rules:
+      - p
+      - u
+      - g
+    order: '04'
+
+aide::watch:
+  /etc:
+    rules:
+      - NORMAL
+  /var/log:
+    rules:
+      - LOG
+    type: regular
+  /tmp:
+    type: exclude

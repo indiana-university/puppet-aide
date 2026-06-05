@@ -1,15 +1,34 @@
 # Copyright © 2022 The Trustees of Indiana University
-# SPDX-License-Identifier: BSD-3-Clause  
+# SPDX-License-Identifier: BSD-3-Clause
 #
-#@summary This defines a path/rule combination in the aide.conf file
+# @summary Defines a path/rule combination in aide.conf.
 #
-#@param path specifies the path for files or directories to watch.
-#@param type defines the type of watch to be used.
-#@param rules defines the aide rules to be setup.
-#@param order defines the order of applying the rules.
+# @param path
+#   Absolute path of the file or directory to watch. Defaults to the resource title.
+# @param type
+#   How the path is matched: 'regular' (prefix), 'equals' (exact), or 'exclude' (ignored).
+# @param rules
+#   One or more AIDE rule names or attribute flags to apply to the path.
+# @param order
+#   Concat fragment order used to position the entry in aide.conf.
 #
-# @example
-#   aide::watch { 'namevar': }
+# @example Declare in Puppet code
+#   aide::watch { '/etc':
+#     rules => ['NORMAL'],
+#   }
+#
+# @example Declare via Hiera (key aide::watch, managed automatically by the aide class)
+#   aide::watch:
+#     /etc:
+#       rules:
+#         - NORMAL
+#     /var/log:
+#       rules:
+#         - LOG
+#       type: regular
+#     /tmp:
+#       type: exclude
+#
 define aide::watch (
   Stdlib::Absolutepath $path = $name,
   String $type  = 'regular',

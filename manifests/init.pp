@@ -164,4 +164,14 @@ class aide (
     init_timeout => $init_timeout,
     require      => Package[$package],
   }
+
+  # Instantiate aide::rule and aide::watch resources declared in Hiera
+  # under the keys 'aide::rule' and 'aide::watch'.
+  lookup('aide::rule', Hash, 'hash', {}).each |String $rule_name, Hash $rule_params| {
+    aide::rule { $rule_name: * => $rule_params }
+  }
+
+  lookup('aide::watch', Hash, 'hash', {}).each |String $watch_name, Hash $watch_params| {
+    aide::watch { $watch_name: * => $watch_params }
+  }
 }

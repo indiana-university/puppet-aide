@@ -1,0 +1,106 @@
+# This file shows how to configure AIDE rules and watches entirely via Hiera,
+# without writing any Puppet resource declarations in your profile/role code.
+#
+# Place this content (or merge it into your existing hierarchy) in the
+# appropriate Hiera data file, e.g.:
+#
+#   data/common.yaml          – applied to every node
+#   data/os/RedHat.yaml       – applied to RedHat family nodes only
+#   data/nodes/myserver.yaml  – applied to a specific node
+#
+---
+
+# ---------------------------------------------------------------------------
+# Named rule groups  (aide::rule)
+# ---------------------------------------------------------------------------
+# Each key is the rule title that appears in aide.conf, e.g. "MYRULE = p+i+n".
+# Supported parameters:
+#   rules – Array or String of AIDE attribute flags to combine  (required)
+#   order – Concat fragment order string                        (default: '03')
+# ---------------------------------------------------------------------------
+aide::rule:
+  # Comprehensive integrity check: permissions, inode, uid, gid, md5, sha256
+  FULL:
+    rules:
+      - p
+      - i
+      - u
+      - g
+      - md5
+      - sha256
+
+  # Permissions-only check (lightweight)
+  PERMS:
+    rules:
+      - p
+      - u
+      - g
+      - acl
+      - selinux
+      - xattrs
+
+  # Log-file check: size and checksums only
+  LOG:
+    rules:
+      - p
+      - u
+      - g
+      - n
+      - md5
+    order: '04'
+
+# ---------------------------------------------------------------------------
+# Path watches  (aide::watch)
+# ---------------------------------------------------------------------------
+# Each key is the watch title (defaults to path when omitted).
+# Supported parameters:
+#   path  – Absolute path to watch                    (default: title)
+#   rules – Array or String of rule names/flags        (required unless exclude)
+#   type  – 'regular' (prefix), 'equals', 'exclude'   (default: 'regular')
+#   order – Integer concat fragment order              (default: 50)
+# ---------------------------------------------------------------------------
+aide::watch:
+  # Watch /etc with full integrity rules
+  /etc:
+    rules:
+      - FULL
+
+  # Watch /boot with full integrity rules
+  /boot:
+    rules:
+      - FULL
+
+  # Watch system binaries
+  /bin:
+    rules:
+      - FULL
+
+  /sbin:
+    rules:
+      - FULL
+
+  /usr:
+    rules:
+      - FULL
+
+  # Watch /var/log with the lightweight LOG rule
+  /var/log:
+    rules:
+      - LOG
+    type: regular
+
+  # Watch only a specific file (equals match)
+  /etc/passwd:
+    type: equals
+    rules:
+      - FULL
+
+  # Exclude directories that change frequently to reduce false positives
+  /tmp:
+    type: exclude
+
+  /var/cache:
+    type: exclude
+
+  /var/spool:
+    type: exclude

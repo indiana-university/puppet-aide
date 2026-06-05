@@ -1,5 +1,5 @@
 # puppet-aide (AIDE - Advanced Intrusion Detection Enviroment).
-[![Build Status](https://travis-ci.com/indiana-university/puppet-aide.svg?branch=master)](https://travis-ci.com/indiana-university/puppet-aide) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity) [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
+[![CI](https://github.com/indiana-university/puppet-aide/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/indiana-university/puppet-aide/actions/workflows/ci.yml) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity) [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
 
 #### Table of Contents
@@ -354,12 +354,93 @@ Default value: `/usr/bin/head`
 
 ## Hiera
 
-Values can be set using hiera, for example:
+All class parameters can be set via Hiera. In addition, `aide::rule` and
+`aide::watch` resources can be declared entirely from Hiera data — no Puppet
+code is required in your profile or role.
 
-```
+### Class parameters
+
+```yaml
 aide::syslogout: false
 aide::hour: 1
+aide::mailto: 'root@example.com'
 ```
+
+### Declaring rules via Hiera
+
+Use the `aide::rule` key with a hash whose keys are rule titles and whose
+values are hashes of `aide::rule` parameters:
+
+```yaml
+aide::rule:
+  FULL:
+    rules:
+      - p
+      - i
+      - u
+      - g
+      - md5
+      - sha256
+  PERMS:
+    rules:
+      - p
+      - u
+      - g
+    order: '04'
+```
+
+This is equivalent to the Puppet code:
+
+```puppet
+aide::rule { 'FULL':
+  rules => ['p', 'i', 'u', 'g', 'md5', 'sha256'],
+}
+aide::rule { 'PERMS':
+  rules => ['p', 'u', 'g'],
+  order => '04',
+}
+```
+
+### Declaring watches via Hiera
+
+Use the `aide::watch` key with a hash whose keys are watch titles and whose
+values are hashes of `aide::watch` parameters:
+
+```yaml
+aide::watch:
+  /etc:
+    rules:
+      - FULL
+  /var/log:
+    rules:
+      - LOG
+    type: regular
+  /etc/passwd:
+    type: equals
+    rules:
+      - FULL
+  /tmp:
+    type: exclude
+  /var/cache:
+    type: exclude
+```
+
+This is equivalent to the Puppet code:
+
+```puppet
+aide::watch { '/etc':   rules => ['FULL'] }
+aide::watch { '/var/log':  rules => ['LOG'], type => 'regular' }
+aide::watch { '/etc/passwd': type => 'equals', rules => ['FULL'] }
+aide::watch { '/tmp':       type => 'exclude' }
+aide::watch { '/var/cache': type => 'exclude' }
+```
+
+A full working example combining rules and watches is provided in
+[`examples/hiera.yaml`](examples/hiera.yaml).
+
+Hiera merge behaviour: both `aide::rule` and `aide::watch` use a **hash**
+merge strategy, so entries from different levels of the hierarchy are combined
+rather than the higher level overriding the lower.
 
 ### Tasks
 The aide module has a task that allows a user to manually initialize aide and copy the database. This is paticular useful when multiple changes are detected on more than one server. The commands the task executes are below and has been tested on Ubuntu.

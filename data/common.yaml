@@ -21,3 +21,5 @@ aide::rm_path: '/usr/bin/rm'
 aide::head_path: '/usr/bin/head'
 aide::mail_path: '/usr/bin/mail'
 aide::conf_path: '/etc/aide.conf'
+aide::rule: {}
+aide::watch: {}
